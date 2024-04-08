@@ -1,0 +1,8 @@
+.idea
+*.class
+target/
+src/main/resources/com/catquest/controls.json
+src/main/resources/com/catquest/audio.json
+src/main/resources/com/catquest/game.json
+src/main/resources/com/catquest/save.json
+src/main/resources/com/catquest/map.txt
