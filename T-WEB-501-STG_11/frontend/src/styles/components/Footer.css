@@ -1,0 +1,20 @@
+footer {
+	box-shadow: 0 3px 30px var(--objectColor);
+	margin-top: 4rem;
+	height: 8rem;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+footer .content {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	gap: .5rem;
+	height: 100%;
+}

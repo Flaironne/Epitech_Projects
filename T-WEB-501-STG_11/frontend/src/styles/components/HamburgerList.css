@@ -1,0 +1,42 @@
+
+@media (max-width:1040px) {
+
+.menuO-list {
+    display: block;
+    position: absolute;
+    margin: 10px 0px 0px 0px;
+    top: 53px;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    margin-top: 35px;
+    animation: mymove 1s;
+  }
+  
+  .menuO-list a {
+    display: block;
+    color: white;
+    text-align: end;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .menuC-list {
+    display: none;
+    position: absolute;
+    margin: 10px 0px 0px 0px;
+    top: 53px;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    opacity: 0;
+  }
+}
+
+
+@media (min-width:768px) {
+  
+  .menuC-list a{
+    margin-right: 10px;
+  }
+}

@@ -1,0 +1,65 @@
+main {
+    height: 100%;
+    margin-bottom: 2rem;
+}
+
+.notifications {
+  margin-top: 2rem;
+  display: grid;
+  list-style-type: none;
+  gap: 3rem;
+}
+
+.notificationCard{
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--textColor);
+    display: flex;
+    padding-left:0px;
+    align-items: center;
+    background-color: var(--bgColor);
+    color: var(--textColor);
+    height: 100px;
+}
+
+.notificationCard:hover {
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--textColor);
+}
+
+#notification__ID{
+    flex:1;
+    text-align: center;
+}
+
+.notificationType{
+    flex:2;
+}
+
+.jobDescription{
+    flex:5;
+}
+
+@media (max-width:767px){
+    .notificationCard{
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap : 5px;
+        height:200px;
+    }
+
+    #notification__ID{
+        margin-top:20px;
+    }
+
+    .notificationType{
+        flex:1;
+    }
+
+    .jobDescription{
+        margin-left :10px;
+        margin-right :10px;
+        text-align: center;
+        flex:3;
+    }
+
+}

@@ -1,0 +1,50 @@
+.skeleton__companyCard {
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--textColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--bgColor);
+  color: var(--textColor);
+  height: 300px;
+  width: calc(33% - 2rem);
+  min-width: 280px;
+}
+.skeleton__companyLogo {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  background-color: var(--skeletonRect);
+  box-shadow: 0 0 5px var(--textColor);
+}
+
+.skeleton__companyInformation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.skeleton__companyName {
+  text-align: center;
+  text-decoration: none;
+  width: 125px;
+  height: 31px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  background-color: var(--skeletonRect);
+}
+
+.skeleton__companyRate {
+  width: 100px;
+  height: 20px;
+  background-color: var(--skeletonRect);
+}
+
+.skeleton__companyOfferNb {
+  width: 60px;
+  height: 20px;
+  background-color: var(--skeletonRect);
+}
