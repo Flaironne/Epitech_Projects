@@ -1,0 +1,241 @@
+#app {
+  text-align: center;
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.label {
+  width: 100%;
+  position: fixed;
+  height: fit-content;
+  display: flex;
+  gap: 0.5em;
+  font-size: 1.5em;
+  color: var(--text);
+  width: fit-content;
+  z-index: 200;
+  margin: 2.5em auto;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.indicator-container {
+  width: 100%;
+  position: fixed;
+  height: fit-content;
+  display: flex;
+  gap: 0.5em;
+  color: var(--text);
+  width: fit-content;
+  z-index: 200;
+  margin: 2.5em auto;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.indicator-circle {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background-color: var(--primary);
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+.indicator-circle:hover {
+  cursor: pointer;
+}
+
+.indicator-circle.active {
+  background-color: #fffa00;
+}
+
+.chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 15em;
+  margin-right: 5em;
+}
+
+.chart ul {
+  display: flex;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+.chart li {
+  float: left;
+  text-align: center;
+  list-style-type: none;
+  position: relative;
+  padding: 20px 5px 0 5px;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+.chart li::before,
+.chart li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 50%;
+  border-top: 0.25em solid var(--accent);
+  width: 50%;
+  height: 20px;
+}
+
+.chart li::after {
+  right: auto;
+  left: 50%;
+  border-left: 0.25em solid var(--accent);
+}
+
+.chart li:only-child::after,
+.chart li:only-child::before {
+  display: none;
+}
+
+.chart li:only-child {
+  padding-top: 0;
+}
+
+.chart li:first-child::before,
+.chart li:last-child::after {
+  border: 0 none;
+}
+
+.chart li:last-child::before {
+  border-right: 0.25em solid var(--accent);
+  border-radius: 0 5px 0 0;
+  -webkit-border-radius: 0 5px 0 0;
+  -moz-border-radius: 0 5px 0 0;
+}
+
+.chart li:first-child::after {
+  border-radius: 5px 0 0 0;
+  -webkit-border-radius: 5px 0 0 0;
+  -moz-border-radius: 5px 0 0 0;
+}
+
+.chart ul ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-left: 0.25em solid var(--accent);
+  width: 0;
+  height: 20px;
+}
+
+.chart li a {
+  border: 0.25em solid var(--accent);
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #666;
+  font-family: arial, verdana, tahoma;
+  font-size: 11px;
+  display: inline-block;
+
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+.chart li a:hover,
+.chart li a:hover + ul li a {
+  background: #1492ec;
+  color: #000;
+  border: 1px solid #005eff;
+}
+
+.chart li a:hover + ul li::after,
+.chart li a:hover + ul li::before,
+.chart li a:hover + ul::before,
+.chart li a:hover + ul ul::before {
+  border-color: #005eff;
+}
+
+.bubble {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 0.5em;
+  border-radius: 1em;
+  min-width: 24em;
+  max-width: 24em;
+  min-height: 20em;
+  max-height: 20em;
+  font-size: 0.8em;
+  margin-top: -5em;
+  margin-bottom: -1.3em;
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 1em;
+}
+
+.bubble .portrait {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.bubble .portrait img {
+  display: block;
+  margin: 0 auto 0.5em;
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.5);
+}
+
+.bubble .presentation {
+  margin-top: 4.5em;
+  min-height: 9em;
+  font-size: 1.2em;
+  max-height: 9em;
+  font-weight: bold;
+  background-color: var(--background-light);
+  border-radius: 0.5em;
+  padding-top: 2.5em;
+  box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.5);
+}
+
+.bubble .presentation h3.name {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--text);
+}
+
+.bubble .presentation .job {
+  margin-top: -1.5em;
+  font-size: 1em;
+  color: var(--primary);
+}
+
+.join {
+  width: 0.25em;
+  margin: 0 auto;
+  height: 10em;
+  background-color: var(--accent);
+  position: relative;
+}

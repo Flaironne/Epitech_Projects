@@ -1,0 +1,17 @@
+:root {
+  --text: #f0ecec;
+  --background: #000000;
+  --background-light: #080808;
+  --primary: #c0b1b1;
+  --secondary: #5a5849;
+  --accent: #fffa00;
+}
+
+body {
+  zoom: 0.7;
+  background-color: var(--background);
+  margin: 0 auto;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+}

@@ -1,0 +1,783 @@
+[
+  {
+    "label": "Opticod",
+    "persons": [
+      {
+        "id": 1,
+        "name": "Quentin D.",
+        "service": "Développement",
+        "fonction": "Chef de projet",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [2, 4],
+        "isTop": false
+      },
+      {
+        "id": 2,
+        "name": "Alexis H.",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 3,
+        "name": "David M.",
+        "service": "Direction",
+        "fonction": "Directeur",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [1, 10, 5, 7, 8, 9],
+        "isTop": true
+      },
+      {
+        "id": 4,
+        "name": "Lucas L.",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 5,
+        "name": "Karine F.",
+        "service": "Développement",
+        "fonction": "Chef de projet BC & Directrice d'agence Nancy",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [6, 11],
+        "isTop": false
+      },
+      {
+        "id": 6,
+        "name": "Lucas F.",
+        "service": "Développement",
+        "fonction": "Consultant Développeur Dynamics NAV / BC",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 7,
+        "name": "Florent H.",
+        "service": "Développement",
+        "fonction": "Consultant BC",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 8,
+        "name": "Valentin D.",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 9,
+        "name": "Philippe K.",
+        "service": "Développement",
+        "fonction": "Chef de projet",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 10,
+        "name": "Nathalie K.",
+        "service": "Ressoruces Humaines",
+        "fonction": "RH",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 11,
+        "name": "Tiffany B.",
+        "service": "Développement",
+        "fonction": "Consultant BC",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      }
+    ]
+  },
+  {
+    "label": "Opticod (even more persons)",
+    "persons": [
+      {
+        "id": 1,
+        "name": "Quentin D.",
+        "service": "Développement",
+        "fonction": "Chef de projet",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [2, 4],
+        "isTop": false
+      },
+      {
+        "id": 2,
+        "name": "Alexis H.",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 3,
+        "name": "David M.",
+        "service": "Direction",
+        "fonction": "Directeur",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [1, 5, 9, 10, 12, 23],
+        "isTop": true
+      },
+      {
+        "id": 4,
+        "name": "Lucas L.",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 5,
+        "name": "Karine F.",
+        "service": "Développement",
+        "fonction": "Chef de projet BC & Directrice d'agence Nancy",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [6],
+        "isTop": false
+      },
+      {
+        "id": 6,
+        "name": "Lucas F.",
+        "service": "Développement",
+        "fonction": "Consultant Développeur Dynamics NAV / BC",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 7,
+        "name": "Florent H.",
+        "service": "Développement",
+        "fonction": "Consultant BC",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 8,
+        "name": "Valentin D.",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 9,
+        "name": "Philippe K.",
+        "service": "Développement",
+        "fonction": "Chef de projet",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 10,
+        "name": "Nathalie K.",
+        "service": "Ressoruces Humaines",
+        "fonction": "RH",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 12,
+        "name": "Employee 1",
+        "service": "Développement",
+        "fonction": "Chef de projet",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [16, 17, 18, 19, 20, 21, 22],
+        "isTop": false
+      },
+      {
+        "id": 23,
+        "name": "Employee 23",
+        "service": "Développement",
+        "fonction": "Chef de projet",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [7, 8, 13, 14, 15],
+        "isTop": false
+      },
+      {
+        "id": 13,
+        "name": "Employee 2",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 14,
+        "name": "Employee 3",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 15,
+        "name": "Employee 4",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 16,
+        "name": "Employee 5",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 17,
+        "name": "Employee 6",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 18,
+        "name": "Employee 7",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 19,
+        "name": "Employee 8",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 20,
+        "name": "Employee 9",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 21,
+        "name": "Employee 10",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 22,
+        "name": "Employee 11",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      }
+    ]
+  },
+  {
+    "label": "Opticod (even more agencies)",
+    "persons": [
+      {
+        "id": 1,
+        "name": "Quentin D.",
+        "service": "Développement",
+        "fonction": "Chef de projet",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [2, 4],
+        "isTop": false
+      },
+      {
+        "id": 2,
+        "name": "Alexis H.",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 3,
+        "name": "David M.",
+        "service": "Direction",
+        "fonction": "Directeur",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [1, 5, 7, 10, 8, 9, 11, 16],
+        "isTop": true
+      },
+      {
+        "id": 4,
+        "name": "Lucas L.",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 5,
+        "name": "Karine F.",
+        "service": "Développement",
+        "fonction": "Chef de projet BC & Directrice d'agence Nancy",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [6],
+        "isTop": false
+      },
+      {
+        "id": 6,
+        "name": "Lucas F.",
+        "service": "Développement",
+        "fonction": "Consultant Développeur Dynamics NAV / BC",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 7,
+        "name": "Florent H.",
+        "service": "Développement",
+        "fonction": "Consultant BC",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 8,
+        "name": "Valentin D.",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 9,
+        "name": "Philippe K.",
+        "service": "Développement",
+        "fonction": "Chef de projet",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 10,
+        "name": "Nathalie K.",
+        "service": "Ressoruces Humaines",
+        "fonction": "RH",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 11,
+        "name": "Employee 11",
+        "service": "Direction",
+        "fonction": "Directrice d'agence Bruxelles",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [12],
+        "isTop": false
+      },
+      {
+        "id": 12,
+        "name": "Employee 12",
+        "service": "Développement",
+        "fonction": "Chef de projet",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [13, 14, 15],
+        "isTop": false
+      },
+      {
+        "id": 13,
+        "name": "Employee 13",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 14,
+        "name": "Employee 14",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 15,
+        "name": "Employee 15",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 16,
+        "name": "Employee 16",
+        "service": "Direction",
+        "fonction": "Directrice d'agence Lille",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [17],
+        "isTop": false
+      },
+      {
+        "id": 17,
+        "name": "Employee 17",
+        "service": "Développement",
+        "fonction": "Chef de projet",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [18, 19, 20],
+        "isTop": false
+      },
+      {
+        "id": 18,
+        "name": "Employee 18",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 19,
+        "name": "Employee 19",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 20,
+        "name": "Employee 20",
+        "service": "Développement",
+        "fonction": "Analyse Développeur ERP",
+        "image": "https://randomuser.me/api/portraits/men/4.jpg",
+        "subordinates": [],
+        "isTop": false
+      }
+    ]
+  },
+  {
+    "label": "SOC Informatique",
+    "persons": [
+      {
+        "id": 1,
+        "name": "Stéphane L.",
+        "service": "Direction générale",
+        "fonction": "PDG",
+        "isTop": true,
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": [2, 3, 4, 5, 6]
+      },
+      {
+        "id": 2,
+        "name": "Audrey W.",
+        "service": "Administration",
+        "fonction": "Office Manager",
+        "isTop": false,
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": []
+      },
+      {
+        "id": 3,
+        "name": "Jean Michel P.",
+        "service": "R&D",
+        "fonction": "Responsable",
+        "isTop": false,
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": [7, 8, 9, 10, 11, 12]
+      },
+      {
+        "id": 4,
+        "name": "Caroline P.",
+        "service": "Marketing",
+        "fonction": "Responsable",
+        "isTop": false,
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": [13]
+      },
+      {
+        "id": 5,
+        "name": "Thomas E.",
+        "service": "Communication",
+        "fonction": "Chef",
+        "isTop": false,
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": [14, 15, 16, 17]
+      },
+      {
+        "id": 6,
+        "name": "Julien S.",
+        "service": "Support et Formation",
+        "isTop": false,
+        "fonction": "Resp Support et formation",
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": [18, 19, 20]
+      },
+      {
+        "id": 7,
+        "name": "Mickael N.",
+        "service": "R&D",
+        "fonction": "Chef de projet DVS",
+        "isTop": false,
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": []
+      },
+      {
+        "id": 8,
+        "name": "Nicolas C.",
+        "isTop": false,
+        "service": "R&D",
+        "fonction": "Chef de projet JustBIM",
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": []
+      },
+      {
+        "id": 9,
+        "name": "Valentin D.",
+        "service": "R&D",
+        "fonction": "Développeur",
+        "isTop": false,
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": []
+      },
+      {
+        "id": 10,
+        "name": "Clément M.",
+        "service": "R&D",
+        "isTop": false,
+        "fonction": "Chef de projet Cloud",
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": []
+      },
+      {
+        "id": 11,
+        "name": "Florian W.",
+        "service": "R&D",
+        "fonction": "Développeur",
+        "isTop": false,
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": []
+      },
+      {
+        "id": 12,
+        "name": "Garip K.",
+        "service": "R&D",
+        "isTop": false,
+        "fonction": "Développeur",
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": []
+      },
+      {
+        "id": 13,
+        "name": "Robin H.",
+        "isTop": false,
+        "service": "Marketing",
+        "fonction": "Assistant marketing",
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": []
+      },
+      {
+        "id": 14,
+        "name": "Sacha T.S.",
+        "isTop": false,
+        "service": "Communication",
+        "fonction": "Assistant commercial",
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": []
+      },
+      {
+        "id": 15,
+        "name": "Matthieu A.",
+        "isTop": false,
+        "service": "Ventes",
+        "fonction": "Commercial",
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": []
+      },
+      {
+        "id": 16,
+        "isTop": false,
+        "name": "Samoela R.H. ",
+        "service": "Communication",
+        "fonction": "Com. OUEST",
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": []
+      },
+      {
+        "id": 17,
+        "isTop": false,
+        "name": "David A.",
+        "service": "Support et Formation",
+        "fonction": "Com. Grand Est",
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": []
+      },
+      {
+        "id": 18,
+        "name": "Sandrine V.",
+        "isTop": false,
+        "service": "Support et Formation",
+        "fonction": "Formatrice",
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": []
+      },
+      {
+        "id": 19,
+        "name": "Rodolphe D.",
+        "service": "Support et Formation",
+        "isTop": false,
+        "fonction": "Tech Support + formateur",
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": []
+      },
+      {
+        "id": 20,
+        "name": "Cyril D.B.",
+        "isTop": false,
+        "service": "Support et Formation",
+        "fonction": "Tech support",
+        "image": "https://randomuser.me/api/portraits/men/1.jpg",
+        "subordinates": []
+      }
+    ]
+  },
+  {
+    "label": "Alsacréations",
+    "persons": [
+      {
+        "id": 1,
+        "name": "Rodolphe RIMELÉ",
+        "service": "Développement",
+        "fonction": "Co-Gérant",
+        "image": "https://randomuser.me/api/portraits/men/2.jpg",
+        "subordinates": [3, 4, 5, 6, 7, 8, 9, 10, 11],
+        "isTop": true
+      },
+      {
+        "id": 2,
+        "name": "Raphaël GOETTER",
+        "service": "Développement",
+        "fonction": "Co-Gérant",
+        "image": "https://randomuser.me/api/portraits/men/2.jpg",
+        "subordinates": [],
+        "isTop": true
+      },
+      {
+        "id": 3,
+        "name": "Charline FERRÉ",
+        "service": "Développement",
+        "fonction": "Cheffe de Projet",
+        "image": "https://randomuser.me/api/portraits/men/2.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 4,
+        "name": "Philippe VAYSSIÈRE",
+        "service": "Développement",
+        "fonction": "Expert Accessibilité",
+        "image": "https://randomuser.me/api/portraits/men/2.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 5,
+        "name": "Ismaëlle ARIAUDO",
+        "service": "Développement",
+        "fonction": "Experte Accessibilité",
+        "image": "https://randomuser.me/api/portraits/men/2.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 6,
+        "name": "Thomas LOEGEL",
+        "service": "Développement",
+        "fonction": "Développeur",
+        "image": "https://randomuser.me/api/portraits/men/2.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 7,
+        "name": "Nicolas SUTTER",
+        "service": "Développement",
+        "fonction": "Développeur",
+        "image": "https://randomuser.me/api/portraits/men/2.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 8,
+        "name": "Lisa EFFENBERGER",
+        "service": "Développement",
+        "fonction": "Designeuse",
+        "image": "https://randomuser.me/api/portraits/men/2.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 9,
+        "name": "Christophe DE TADDEO",
+        "service": "Développement",
+        "fonction": "Développeur",
+        "image": "https://randomuser.me/api/portraits/men/2.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 10,
+        "name": "François DE OLIVEIRA",
+        "service": "Développement",
+        "fonction": "Développeur",
+        "image": "https://randomuser.me/api/portraits/men/2.jpg",
+        "subordinates": [],
+        "isTop": false
+      },
+      {
+        "id": 11,
+        "name": "Colette OSWALD",
+        "service": "Développement",
+        "fonction": "Développeuse",
+        "image": "https://randomuser.me/api/portraits/men/2.jpg",
+        "subordinates": [],
+        "isTop": false
+      }
+    ]
+  }
+]
