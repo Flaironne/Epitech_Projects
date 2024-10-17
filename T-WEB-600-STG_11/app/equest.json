@@ -1,0 +1,1466 @@
+{
+	"info": {
+		"_postman_id": "9b93870d-818f-4bf0-9cba-341cd69c810d",
+		"name": "EQUEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32085537"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Get current authenticated user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ _.domain }}/users",
+							"host": [
+								"{{ _.domain }}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get favorites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ _.domain }}/users",
+							"host": [
+								"{{ _.domain }}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the current user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{ _.domain }}/users",
+							"host": [
+								"{{ _.domain }}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"johndoe5@doe.com\",\n\t\"password\": \"Johndoe20*\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstname\": \"John\",\n\t\"lastname\": \"Doe\",\n\t\"email\": \"johndoe5@doe.com\",\n\t\"password\": \"Johndoe20*\",\n\t\"is_admin\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ _.domain }}/register",
+							"host": [
+								"{{ _.domain }}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "Create a product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Cayllouss\",\n\t\"description\": \"Mon cayllou\",\n\t\"image\": \"https://dd.co\",\n\t\"price\": 20000\n}\t\t",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Caylloux\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ _.domain }}/products/38",
+									"host": [
+										"{{ _.domain }}"
+									],
+									"path": [
+										"products",
+										"38"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{ _.domain }}/products/40",
+									"host": [
+										"{{ _.domain }}"
+									],
+									"path": [
+										"products",
+										"40"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Create a user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"testz12email.com\",\n\t\"password\": \"Testpassword*123\",\n\t\"firstname\": \"Test\",\n\t\"lastname\": \"Hello\",\n\t\"is_admin\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ _.domain }}/admin/users",
+									"host": [
+										"{{ _.domain }}"
+									],
+									"path": [
+										"admin",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"lastname\": \"Coucou\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ _.domain }}/admin/users/1",
+									"host": [
+										"{{ _.domain }}"
+									],
+									"path": [
+										"admin",
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ _.domain }}/admin/users/2",
+									"host": [
+										"{{ _.domain }}"
+									],
+									"path": [
+										"admin",
+										"users",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ _.domain }}/admin/users",
+									"host": [
+										"{{ _.domain }}"
+									],
+									"path": [
+										"admin",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{ _.domain }}/admin/users/1",
+									"host": [
+										"{{ _.domain }}"
+									],
+									"path": [
+										"admin",
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Orders",
+					"item": [
+						{
+							"name": "Get all orders",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ _.domain }}/admin/orders",
+									"host": [
+										"{{ _.domain }}"
+									],
+									"path": [
+										"admin",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a order",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ _.domain }}/admin/orders/1",
+									"host": [
+										"{{ _.domain }}"
+									],
+									"path": [
+										"admin",
+										"orders",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Stripe",
+					"item": [
+						{
+							"name": "Products",
+							"item": [
+								{
+									"name": "Create a product",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{secret_key}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded"
+											},
+											{
+												"key": "User-Agent",
+												"value": "{{versionUserAgent}}",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "name",
+													"value": "Produit test",
+													"description": "(Required) The product's name, meant to be displayable to the customer."
+												},
+												{
+													"key": "active",
+													"value": "true",
+													"description": "Whether the product is currently available for purchase. Defaults to `true`."
+												},
+												{
+													"key": "default_price_data[currency]",
+													"value": "Eazdza",
+													"description": "Data used to generate a new [Price](https://stripe.com/docs/api/prices) object. This Price will be set as the default price for this product."
+												},
+												{
+													"key": "default_price_data[currency_options]",
+													"value": "<object>",
+													"description": "Data used to generate a new [Price](https://stripe.com/docs/api/prices) object. This Price will be set as the default price for this product.",
+													"disabled": true
+												},
+												{
+													"key": "default_price_data[recurring][interval]",
+													"value": "<string>",
+													"description": "Data used to generate a new [Price](https://stripe.com/docs/api/prices) object. This Price will be set as the default price for this product.",
+													"disabled": true
+												},
+												{
+													"key": "default_price_data[recurring][interval_count]",
+													"value": "<integer>",
+													"description": "Data used to generate a new [Price](https://stripe.com/docs/api/prices) object. This Price will be set as the default price for this product.",
+													"disabled": true
+												},
+												{
+													"key": "default_price_data[tax_behavior]",
+													"value": "<string>",
+													"description": "Data used to generate a new [Price](https://stripe.com/docs/api/prices) object. This Price will be set as the default price for this product.",
+													"disabled": true
+												},
+												{
+													"key": "default_price_data[unit_amount]",
+													"value": "20",
+													"description": "Data used to generate a new [Price](https://stripe.com/docs/api/prices) object. This Price will be set as the default price for this product."
+												},
+												{
+													"key": "default_price_data[unit_amount_decimal]",
+													"value": "<decimal>",
+													"description": "Data used to generate a new [Price](https://stripe.com/docs/api/prices) object. This Price will be set as the default price for this product.",
+													"disabled": true
+												},
+												{
+													"key": "description",
+													"value": "<string>",
+													"description": "The product's description, meant to be displayable to the customer. Use this field to optionally store a long form explanation of the product being sold for your own rendering purposes."
+												},
+												{
+													"key": "expand[0]",
+													"value": "<string>",
+													"description": "Specifies which fields in the response should be expanded.",
+													"disabled": true
+												},
+												{
+													"key": "expand[1]",
+													"value": "<string>",
+													"description": "Specifies which fields in the response should be expanded.",
+													"disabled": true
+												},
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "An identifier will be randomly generated by Stripe. You can optionally override this ID, but the ID must be unique across all products in your Stripe account.",
+													"disabled": true
+												},
+												{
+													"key": "images[0]",
+													"value": "<string>",
+													"description": "A list of up to 8 URLs of images for this product, meant to be displayable to the customer.",
+													"disabled": true
+												},
+												{
+													"key": "images[1]",
+													"value": "<string>",
+													"description": "A list of up to 8 URLs of images for this product, meant to be displayable to the customer.",
+													"disabled": true
+												},
+												{
+													"key": "marketing_features[0][name]",
+													"value": "<string>",
+													"description": "A list of up to 15 marketing features for this product. These are displayed in [pricing tables](https://stripe.com/docs/payments/checkout/pricing-table).",
+													"disabled": true
+												},
+												{
+													"key": "marketing_features[1][name]",
+													"value": "<string>",
+													"description": "A list of up to 15 marketing features for this product. These are displayed in [pricing tables](https://stripe.com/docs/payments/checkout/pricing-table).",
+													"disabled": true
+												},
+												{
+													"key": "package_dimensions[height]",
+													"value": "<number>",
+													"description": "The dimensions of this product for shipping purposes.",
+													"disabled": true
+												},
+												{
+													"key": "package_dimensions[length]",
+													"value": "<number>",
+													"description": "The dimensions of this product for shipping purposes.",
+													"disabled": true
+												},
+												{
+													"key": "package_dimensions[weight]",
+													"value": "<number>",
+													"description": "The dimensions of this product for shipping purposes.",
+													"disabled": true
+												},
+												{
+													"key": "package_dimensions[width]",
+													"value": "<number>",
+													"description": "The dimensions of this product for shipping purposes.",
+													"disabled": true
+												},
+												{
+													"key": "shippable",
+													"value": "<boolean>",
+													"description": "Whether this product is shipped (i.e., physical goods).",
+													"disabled": true
+												},
+												{
+													"key": "statement_descriptor",
+													"value": "<string>",
+													"description": "An arbitrary string to be displayed on your customer's credit card or bank statement. While most banks display this information consistently, some may display it incorrectly or not at all.\n\nThis may be up to 22 characters. The statement description may not include `<`, `>`, `\\`, `\"`, `'` characters, and will appear on your customer's statement in capital letters. Non-ASCII characters are automatically stripped.\n It must contain at least one letter.",
+													"disabled": true
+												},
+												{
+													"key": "tax_code",
+													"value": "",
+													"description": "A [tax code](https://stripe.com/docs/tax/tax-categories) ID.",
+													"disabled": true
+												},
+												{
+													"key": "unit_label",
+													"value": "€",
+													"description": "A label that represents units of this product. When set, this will be included in customers' receipts, invoices, Checkout, and the customer portal.",
+													"disabled": true
+												},
+												{
+													"key": "url",
+													"value": "<string>",
+													"description": "A URL of a publicly-accessible webpage for this product.",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "{{stripe_url}}/v1/products",
+											"host": [
+												"{{stripe_url}}"
+											],
+											"path": [
+												"v1",
+												"products"
+											]
+										},
+										"description": "<p>Creates a new product object.</p>"
+									},
+									"response": []
+								},
+								{
+									"name": "Update a product",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{secret_key}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "active",
+													"value": "false",
+													"description": "Whether the product is available for purchase."
+												},
+												{
+													"key": "default_price",
+													"value": "<string>",
+													"description": "The ID of the [Price](https://stripe.com/docs/api/prices) object that is the default price for this product."
+												},
+												{
+													"key": "expand[0]",
+													"value": "<string>",
+													"description": "Specifies which fields in the response should be expanded.",
+													"disabled": true
+												},
+												{
+													"key": "expand[1]",
+													"value": "<string>",
+													"description": "Specifies which fields in the response should be expanded.",
+													"disabled": true
+												},
+												{
+													"key": "images[0]",
+													"value": "<string>",
+													"description": "A list of up to 8 URLs of images for this product, meant to be displayable to the customer.",
+													"disabled": true
+												},
+												{
+													"key": "images[1]",
+													"value": "<string>",
+													"description": "A list of up to 8 URLs of images for this product, meant to be displayable to the customer.",
+													"disabled": true
+												},
+												{
+													"key": "marketing_features[0][name]",
+													"value": "<string>",
+													"description": "A list of up to 15 marketing features for this product. These are displayed in [pricing tables](https://stripe.com/docs/payments/checkout/pricing-table).",
+													"disabled": true
+												},
+												{
+													"key": "marketing_features[1][name]",
+													"value": "<string>",
+													"description": "A list of up to 15 marketing features for this product. These are displayed in [pricing tables](https://stripe.com/docs/payments/checkout/pricing-table).",
+													"disabled": true
+												},
+												{
+													"key": "name",
+													"value": "azdoazazdaznoodnazodnza",
+													"description": "The product's name, meant to be displayable to the customer.",
+													"disabled": true
+												},
+												{
+													"key": "package_dimensions[height]",
+													"value": "<number>",
+													"description": "The dimensions of this product for shipping purposes.",
+													"disabled": true
+												},
+												{
+													"key": "package_dimensions[length]",
+													"value": "<number>",
+													"description": "The dimensions of this product for shipping purposes.",
+													"disabled": true
+												},
+												{
+													"key": "package_dimensions[weight]",
+													"value": "<number>",
+													"description": "The dimensions of this product for shipping purposes.",
+													"disabled": true
+												},
+												{
+													"key": "package_dimensions[width]",
+													"value": "<number>",
+													"description": "The dimensions of this product for shipping purposes.",
+													"disabled": true
+												},
+												{
+													"key": "shippable",
+													"value": "<boolean>",
+													"description": "Whether this product is shipped (i.e., physical goods).",
+													"disabled": true
+												},
+												{
+													"key": "statement_descriptor",
+													"value": "<string>",
+													"description": "An arbitrary string to be displayed on your customer's credit card or bank statement. While most banks display this information consistently, some may display it incorrectly or not at all.\n\nThis may be up to 22 characters. The statement description may not include `<`, `>`, `\\`, `\"`, `'` characters, and will appear on your customer's statement in capital letters. Non-ASCII characters are automatically stripped.\n It must contain at least one letter. May only be set if `type=service`.",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "{{stripe_url}}/v1/products/prod_Q1KSdpEAmOhuBe",
+											"host": [
+												"{{stripe_url}}"
+											],
+											"path": [
+												"v1",
+												"products",
+												"prod_Q1KSdpEAmOhuBe"
+											]
+										},
+										"description": "<p>Updates the specific product by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p>"
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get all products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ _.domain }}/products",
+							"host": [
+								"{{ _.domain }}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add to favorites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{ _.domain }}/products",
+							"host": [
+								"{{ _.domain }}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove from favorites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ _.domain }}/products",
+							"host": [
+								"{{ _.domain }}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ _.domain }}/products/1",
+							"host": [
+								"{{ _.domain }}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Carts",
+			"item": [
+				{
+					"name": "Get all products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ _.domain }}/carts",
+							"host": [
+								"{{ _.domain }}"
+							],
+							"path": [
+								"carts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a product to the cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{ _.domain }}/carts/1",
+							"host": [
+								"{{ _.domain }}"
+							],
+							"path": [
+								"carts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate a cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{ _.domain }}/carts/1",
+							"host": [
+								"{{ _.domain }}"
+							],
+							"path": [
+								"carts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a product from the cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ _.domain }}/products/1",
+							"host": [
+								"{{ _.domain }}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Get orders of the current user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ _.domain }}/orders",
+							"host": [
+								"{{ _.domain }}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ _.domain }}/orders/1",
+							"host": [
+								"{{ _.domain }}"
+							],
+							"path": [
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"let json = JSON.parse(responseBody)\r",
+					"if (!json.token) return;\r",
+					"pm.collectionVariables.set(\"token\", json.token);"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "http://localhost:8000/api"
+		},
+		{
+			"key": " _.domain ",
+			"value": "http://localhost:8000/api"
+		},
+		{
+			"key": "token",
+			"value": "<token value>",
+			"type": "string"
+		},
+		{
+			"key": "stripe_url",
+			"value": "https://api.stripe.com/",
+			"type": "string"
+		},
+		{
+			"key": "versionUserAgent",
+			"value": "Stripe Postman Collection Apr 16 2024",
+			"type": "string"
+		}
+	]
+}
