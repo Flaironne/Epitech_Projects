@@ -54,29 +54,34 @@ function chooseCode() {
 }
 
 function isProject() {
-	if [ ${#project} -gt 0 ]; then
-		selected "project" "${project}";
-		return;
-	fi
-	if [ "${5}" == "--project" ] || [ "${5}" == "-p" ]; then
-		selected "project" "${6}"
-		if [ "${6}" == "yes" ]; then
-			project=1;
-		else
-			project=0;
-		fi
-		return;
-	fi
+    if [ ${#project} -gt 0 ]; then
+        selected "project" "${project}"
+        return
+    fi
 
-	echo -e "\nIs it a project ? (yes/no) [\e[0;33mno\e[0m]"
-	printf '> '
-	read project
-	if [ "${project}" == "yes" ]; then
-		project=1;
-	else
-		project=0;
-	fi
+    if [ "${5}" == "--project" ] || [ "${5}" == "-p" ]; then
+        selected "project" "${6}"
+        if [ "${6}" == "yes" ]; then
+            project=1
+        else
+            project=0
+        fi
+        return
+    fi
+
+    # Default to "yes" and display the prompt
+    echo -e "\nIs it a project? (yes/no) [\e[0;33myes\e[0m]"
+    printf '> '
+    read -r project  # Use -r to avoid backslash interpretation
+
+    # Set project based on input or default to "yes"
+    if [ -z "$project" ] || [ "$project" == "yes" ]; then
+        project=1
+    else
+        project=0
+    fi
 }
+
 
 function chooseTeam() {
 	if [ ${#team} -gt 0 ]; then
