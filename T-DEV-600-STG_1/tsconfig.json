@@ -1,0 +1,15 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "baseUrl": "./app",
+    "strict": true,
+    "paths": {
+      "@/components": ["./components"],
+      "@/types": ["./types"],
+      "@/api": ["./api"],
+      "@/mocks": ["./mocks"],
+      "@/hooks": ["./hooks"],
+      "@/contexts": ["./contexts"]
+    }
+  }
+}
