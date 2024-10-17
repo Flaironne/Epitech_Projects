@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source .env;
-clear;
+source .env
+clear
 
 function help() {
 	echo -e "\e[0;32mUsage\e[0m: ./sync.sh [options]"
@@ -28,8 +28,8 @@ function selected() {
 
 function chooseType() {
 	if [ ${#type} -gt 0 ]; then
-		selected "type" "${type}";
-		return;
+		selected "type" "${type}"
+		return
 	fi
 	echo -e "Type of the repository [\e[0;33mWEB\e[0m]"
 	printf '> '
@@ -42,8 +42,8 @@ function chooseType() {
 
 function chooseCode() {
 	if [ ${#code} -gt 0 ]; then
-		selected "code" "${code}";
-		return;
+		selected "code" "${code}"
+		return
 	fi
 	echo -e "\nCode of the repository [\e[0;33m500\e[0m]"
 	printf '> '
@@ -54,41 +54,36 @@ function chooseCode() {
 }
 
 function isProject() {
-    if [ ${#project} -gt 0 ]; then
-        selected "project" "${project}"
-        return
-    fi
+	if [ ${#project} -gt 0 ]; then
+		selected "project" "${project}"
+		return
+	fi
+	if [ "${5}" == "--project" ] || [ "${5}" == "-p" ]; then
+		selected "project" "${6}"
+		if [ "${6}" == "yes" ]; then
+			project=1
+		else
+			project=0
+		fi
+		return
+	fi
 
-    if [ "${5}" == "--project" ] || [ "${5}" == "-p" ]; then
-        selected "project" "${6}"
-        if [ "${6}" == "yes" ]; then
-            project=1
-        else
-            project=0
-        fi
-        return
-    fi
-
-    # Default to "yes" and display the prompt
-    echo -e "\nIs it a project? (yes/no) [\e[0;33myes\e[0m]"
-    printf '> '
-    read -r project  # Use -r to avoid backslash interpretation
-
-    # Set project based on input or default to "yes"
-    if [ -z "$project" ] || [ "$project" == "yes" ]; then
-        project=1
-    else
-        project=0
-    fi
+	echo -e "\nIs it a project ? (yes/no) [\e[0;33mno\e[0m]"
+	printf '> '
+	read project
+	if [ "${project}" == "yes" ]; then
+		project=1
+	else
+		project=0
+	fi
 }
-
 
 function chooseTeam() {
 	if [ ${#team} -gt 0 ]; then
-		selected "team" "${team}";
-		return;
+		selected "team" "${team}"
+		return
 	fi
-	defaultTeam="STG_${STUDENT_NAME}";
+	defaultTeam="STG_${STUDENT_NAME}"
 	echo -e "\nWhat's your team ? [\e[0;33m${defaultTeam}\e[0m]"
 	printf '> '
 	read team
@@ -97,42 +92,75 @@ function chooseTeam() {
 	fi
 }
 
+function makeTeamsImageUrl() {
+	folders="$(ls -d T-*/)"
+	teams=()
+
+	for folder in $folders; do
+		if [[ ! $folder =~ $PROJECT_EXTENSION ]]; then
+			team=$(echo $folder | cut -d'-' -f4- | cut -d'/' -f1)
+			teams+=("$team")
+		fi
+	done
+
+	declare -A teamCount
+	for team in ${teams[@]}; do
+		teamCount[$team]=$((${teamCount[$team]} + 1))
+	done
+
+	url="$TEAMS_API_URL"
+
+	for team in ${!teamCount[@]}; do
+		url+="${team}@${teamCount[$team]},"
+	done
+
+	url=${url::-1}
+	currentLine=$(grep -n "Teams](" README.md | cut -d':' -f1)
+	if [[ -n "$currentLine" ]]; then
+		sed -i "${currentLine}s|.*|![Teams](${url})|" README.md
+		git add README.md
+		git commit -m "Update Teams image in README.md"
+	else
+		echo "No line with 'Teams](' found in README.md"
+	fi
+}
+
 if [ "${1}" == "--help" ] || [ "${1}" == "-h" ]; then
-	help;
-	exit;
+	help
+	exit
 fi
 
 while getopts ":t:c:pT:" opt; do
 	case $opt in
-		t)
-			type="$OPTARG"
-			;;
-		c)
-			code="$OPTARG"
-			;;
-		p)
-			project=1
-			;;
-		T)
-			team="$OPTARG"
-			;;
-		\?)
-			echo "Invalid option: -$OPTARG" >&2
-			exit 1
-			;;
-		:)
-			echo "Option -$OPTARG requires an argument." >&2
-			exit 1
-			;;
+	t)
+		type="$OPTARG"
+		;;
+	c)
+		code="$OPTARG"
+		;;
+	p)
+		project=1
+		;;
+	T)
+		team="$OPTARG"
+		;;
+	\?)
+		echo "Invalid option: -$OPTARG" >&2
+		exit 1
+		;;
+	:)
+		echo "Option -$OPTARG requires an argument." >&2
+		exit 1
+		;;
 	esac
 done
 
-chooseType;
-chooseCode;
-isProject;
+chooseType
+chooseCode
+isProject
 
 if [ ${project} == 1 ]; then
-	chooseTeam;
+	chooseTeam
 	ROOT="T-${type}-${code}-${team}"
 else
 	ROOT="T-${type}-${code}_${PROJECT_EXTENSION}"
@@ -144,30 +172,29 @@ if ! [ -d "${ROOT}" ]; then
 fi
 
 cd $ROOT
-hasCommit=false;
+hasCommit=false
 
 if [ ${project} == 1 ]; then
-		repository="T-${type}-${code}-${team}";
-		git clone "git@github.com:${PROMOTION_NAME}/${repository}.git" . > /dev/null 2>&1
-		rm -rf .git
-		if [ -f ".env.example" ]; then
-			echo -e "\n.env.example file found, continue ? (yes/no) [\e[0;33mno\e[0m]"
-			printf '> '
-			read type
-			if ! [ "${type}" == "yes" ]; then
-				echo -e "\nPush aborted."
-				exit;
-			fi
+	repository="T-${type}-${code}-${team}"
+	git clone "git@github.com:${PROMOTION_NAME}/${repository}.git" . >/dev/null 2>&1
+	rm -rf .git
+	if [ -f ".env.example" ]; then
+		echo -e "\n.env.example file found, continue ? (yes/no) [\e[0;33mno\e[0m]"
+		printf '> '
+		read type
+		if ! [ "${type}" == "yes" ]; then
+			echo -e "\nPush aborted."
+			exit
 		fi
-		cd ..
-		git add $repository > /dev/null 2>&1
-		git commit -m "Push ${repository}." > /dev/null 2>&1
-		hasCommit=true;
-		echo -e "\n\e[0;32mSuccess\e[0m: ${repository} added.";
+	fi
+	cd ..
+	git add $repository >/dev/null 2>&1
+	git commit -m "Push ${repository}." >/dev/null 2>&1
+	hasCommit=true
+	echo -e "\n\e[0;32mSuccess\e[0m: ${repository} added."
 else
-	echo -e "";
-	for ((i=1; i<=10; i++))
-	do
+	echo -e ""
+	for ((i = 1; i <= 10; i++)); do
 		if [ $i -lt 10 ]; then
 			fday="0$i"
 		else
@@ -177,19 +204,19 @@ else
 		if [ -d "${repository}" ]; then
 			echo -e "\e[0;31mError\e[0m: ${repository} already exists, skip."
 		else
-			git clone "git@github.com:EpitechMscProPromo2026/${repository}.git" > /dev/null 2>&1
+			git clone "git@github.com:EpitechMscProPromo2026/${repository}.git" >/dev/null 2>&1
 			if [ $? -ne 0 ]; then
-				echo -e "\e[0;31mError\e[0m: ${repository} doesn't exist on remote, skip.";
+				echo -e "\e[0;31mError\e[0m: ${repository} doesn't exist on remote, skip."
 			else
 				rm -rf $repository/.git $repository/*.pdf
 				if [ "$(ls -A ${repository})" ]; then
-					git add $repository > /dev/null 2>&1
-					git commit -m "Push ${repository}." > /dev/null 2>&1
-					hasCommit=true;
-					echo -e "\e[0;32mSuccess\e[0m: ${repository} added.";
+					git add $repository >/dev/null 2>&1
+					git commit -m "Push ${repository}." >/dev/null 2>&1
+					hasCommit=true
+					echo -e "\e[0;32mSuccess\e[0m: ${repository} added."
 				else
 					rm -rf $repository
-					echo -e "\e[0;31mError\e[0m: ${repository} is empty, deleted.";
+					echo -e "\e[0;31mError\e[0m: ${repository} is empty, deleted."
 				fi
 			fi
 		fi
@@ -197,7 +224,8 @@ else
 fi
 
 if [ ${hasCommit} == true ]; then
-	make clean > /dev/null 2>&1
-	git push > /dev/null 2>&1
-	echo -e "\n\e[0;32mSuccess\e[0m: Pushed to remote.\n";
+	make clean >/dev/null 2>&1
+	makeTeamsImageUrl >/dev/null 2>&1
+	git push >/dev/null 2>&1
+	echo -e "\n\e[0;32mSuccess\e[0m: Pushed to remote.\n"
 fi
