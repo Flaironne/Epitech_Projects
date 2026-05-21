@@ -1,0 +1,34 @@
+{
+  "name": "timemanager-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@primevue/themes": "^4.1.0",
+    "@vueuse/core": "^11.1.0",
+    "axios": "^1.7.7",
+    "chart.js": "^4.4.4",
+    "flowbite": "^2.5.2",
+    "flowbite-vue": "^0.1.6",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.1.0",
+    "sass": "^1.80.3",
+    "vue": "^3.5.10",
+    "vue-chartjs": "^5.3.1",
+    "vue-router": "^4.4.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "sass-embedded": "^1.80.3",
+    "tailwindcss": "^3.4.13",
+    "vite": "^5.4.8",
+    "vite-plugin-pwa": "^0.20.5"
+  }
+}

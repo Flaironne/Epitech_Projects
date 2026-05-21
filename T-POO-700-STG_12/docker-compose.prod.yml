@@ -1,0 +1,81 @@
+services:
+  traefik:
+    image: traefik:v2.9
+    command:
+      - "--api.insecure=false"
+      - "--providers.docker=true" # Enable Docker as a provider
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myletsencrypt.acme.httpChallenge.entryPoint=web"
+      - "--certificatesresolvers.myletsencrypt.acme.email=${TRAEFIK_EMAIL}"
+      - "--certificatesresolvers.myletsencrypt.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./letsencrypt:/letsencrypt
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - timemanager_network
+
+  database:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - timemanager_network
+
+  app:
+    build: timemanager-backend
+    container_name: timemanager
+    environment:
+      DATABASE_URL: "ecto://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database:5432/${POSTGRES_DB}"
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    ports:
+      - "4000:4000"
+    networks:
+      - timemanager_network
+    depends_on:
+      - database
+
+  frontend:
+    build:
+      context: timemanager-app
+      dockerfile: Dockerfile
+      target: prod
+    container_name: vue_frontend_prod
+    ports:
+      - "4173:4173"
+    environment:
+      VITE_API_URL: ${VITE_API_URL:-http://localhost:4173}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=Host(`${TRAEFIK_HOST}`)"
+      - "traefik.http.routers.frontend.entrypoints=web,websecure"
+      - "traefik.http.routers.frontend.tls.certresolver=myletsencrypt"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.frontend.middlewares=redirect-to-https"
+      - "traefik.http.routers.frontend-http.rule=Host(`${TRAEFIK_HOST}`)"
+      - "traefik.http.routers.frontend-http.entrypoints=web"
+      - "traefik.http.routers.frontend-http.middlewares=redirect-to-https"
+    networks:
+      - timemanager_network
+    depends_on:
+      - app
+
+volumes:
+  db_data:
+    name: timemanager_db_data
+
+networks:
+  timemanager_network:
+    driver: bridge
