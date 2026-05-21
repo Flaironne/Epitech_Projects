@@ -1,0 +1,127 @@
+version: "3.9"
+
+services:
+  db:
+    image: timescale/timescaledb-ha:pg17
+    container_name: db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: cryptoviz
+    volumes:
+      - ./api/sql:/docker-entrypoint-initdb.d
+    ports:
+      - "5433:5432"
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 2
+
+
+  kafka2:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: kafka2
+    depends_on:
+      - zookeeper
+      - kafka
+    ports:
+      - "9093:9093"
+    environment:
+      KAFKA_BROKER_ID: 2
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka2:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 2
+
+  scraper:
+    build: ./scraper
+    container_name: scraper
+    restart: on-failure
+    depends_on:
+      - kafka
+    environment:
+      USE_FAUST: "true"
+      KAFKA_BROKER: "kafka:9092"
+      TOPIC_RAW: "crypto.raw"
+      TEST_MODE: "false"
+    volumes:
+      - ./scraper:/app
+
+  cleaner:
+    build: ./cleaner
+    container_name: cleaner
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_BOOTSTRAP: "kafka:9092"
+      TOPIC_RAW: "crypto.raw"
+      TOPIC_CLEAN: "crypto.clean"
+      KAFKA_GROUP_ID: "cleaner"
+    ports:
+      - "5050:5050"
+    volumes:
+      - ./cleaner:/app
+
+  api:
+    build: ./api
+    container_name: api
+    command: pnpm run dev
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - kafka
+    environment:
+      PORT: 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api:/app
+      - api_node_modules:/app/node_modules
+
+  app:
+    build: ./app
+    container_name: app
+    command: pnpm run dev -- --host
+    depends_on:
+      - api
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./app:/app
+      - app_node_modules:/app/node_modules
+
+volumes:
+  api_node_modules:
+  app_node_modules:
