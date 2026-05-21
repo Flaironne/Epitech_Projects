@@ -1,0 +1,4 @@
+IMAGE_SIZE = (128, 128)
+DATASET_PATH = './datasets'
+USE_PCA = False
+K_NEIGHBORS = 3
