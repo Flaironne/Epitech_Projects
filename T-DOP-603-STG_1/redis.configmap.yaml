@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: c-redis
+  namespace: default
+  labels:
+    app: redis
+data:
+  REDIS_HOST: s-redis
