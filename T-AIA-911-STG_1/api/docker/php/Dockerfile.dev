@@ -1,0 +1,44 @@
+FROM php:8.4-cli
+
+ARG UID=1000
+ARG GID=1000
+
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    libonig-dev \
+    libzip-dev \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    zlib1g-dev \
+    libicu-dev \
+    zip unzip git curl pkg-config \
+    postgresql-client \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install \
+        pdo \
+        pdo_pgsql \
+        mbstring \
+        bcmath \
+        gd \
+        zip \
+        intl \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+RUN groupmod -g ${GID} www-data \
+ && usermod -u ${UID} -g ${GID} www-data
+
+WORKDIR /var/www
+
+RUN mkdir -p storage/framework/{cache,sessions,views} bootstrap/cache \
+ && chown -R www-data:www-data storage bootstrap/cache \
+ && chmod -R 775 storage bootstrap/cache
+
+USER www-data
+
+EXPOSE 8000
+
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]

@@ -1,0 +1,97 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: docker/php/Dockerfile.dev
+      args:
+        UID: 1000
+        GID: 1000
+    container_name: sayway_api
+    volumes:
+      - ./api:/var/www
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - sayway_backend
+      - sayway_services
+
+  db:
+    image: postgres:16
+    container_name: sayway_db
+    environment:
+      POSTGRES_DB: sayway
+      POSTGRES_USER: sayway
+      POSTGRES_PASSWORD: sayway
+    ports:
+      - "5432:5432"
+    volumes:
+      - sayway_data:/var/lib/postgresql/data
+    networks:
+      - sayway_backend
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sayway -d sayway"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  nlp_service:
+    build:
+      context: ./services/nlp-service-camembert
+      dockerfile: Dockerfile
+    env_file:
+      - ./services/nlp-service-camembert/.env
+    container_name: sayway_nlp
+    restart: always
+    ports:
+      - "5000:8000"
+    volumes:
+      - ./services/nlp-service-camembert:/app
+    networks:
+      - sayway_backend
+      - sayway_services
+
+  pathfinder_service:
+    build:
+      context: ./services/pathfinder-service
+      dockerfile: Dockerfile
+    env_file:
+      - ./services/pathfinder-service/.env
+    container_name: sayway_pathfinder
+    restart: always
+    ports:
+      - "5050:8000"
+    volumes:
+      - ./services/pathfinder-service:/app
+    networks:
+      - sayway_backend
+      - sayway_services
+
+  queue:
+    build:
+      context: ./api
+      dockerfile: docker/php/Dockerfile.dev
+      args:
+        UID: 1000
+        GID: 1000
+    container_name: sayway_queue
+    command: php artisan queue:work --sleep=3 --tries=3 --timeout=90 --queue=nlp_service,pathfinder_service
+    volumes:
+      - ./api:/var/www
+    depends_on:
+      - db
+      - api
+    networks:
+      - sayway_backend
+      - sayway_services
+
+networks:
+  sayway_backend:
+  sayway_services:
+
+volumes:
+  sayway_data:

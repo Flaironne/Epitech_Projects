@@ -1,0 +1,460 @@
+{
+	"info": {
+		"_postman_id": "76eb2e4d-eab0-4bf4-bad8-1f4c07b4d45e",
+		"name": "Sayway API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46813017",
+		"_collection_link": "https://alexis-6136162.postman.co/workspace/Alexis's-Workspace~688f5397-24e0-443e-844f-6bdf902f9658/collection/46813017-76eb2e4d-eab0-4bf4-bad8-1f4c07b4d45e?action=share&source=collection_link&creator=46813017"
+	},
+	"item": [
+		{
+			"name": "Services",
+			"item": [
+				{
+					"name": "Execute NLP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"language_code\": \"fr_FR\",\r\n    \"raw_transcript\": \"J'aimerais aller de Paris à Marseille.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{nlp_service_url}}/analyze",
+							"host": [
+								"{{nlp_service_url}}"
+							],
+							"path": [
+								"analyze"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Analyze trip request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Service-Token",
+								"value": "iebO03uy0mE5z1RLtM6hqlL2lvAvF2qBJW1UT10BhwdetdR3dejRqpkZmo6BlLXz8WEeprs3a0sGeHp64voQ3xRGqxU1",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"voice_analysis_id\": \"019c56e2-fea1-73a2-aba1-09e263b63199\",\r\n    \"status\": \"processed\",\r\n    \"analysis\": {\r\n        \"departure\": {\r\n            \"name\": \"Strasbourg\",\r\n            \"lon\": 7.733882,\r\n            \"id\": \"StopArea:OCE87212027\",\r\n            \"lat\": 48.58511\r\n        },\r\n        \"destination\": {\r\n            \"name\": \"Avignon TGV\",\r\n            \"lon\": 4.786136,\r\n            \"id\": \"StopArea:OCE87318964\",\r\n            \"lat\": 43.92194\r\n        },\r\n        \"options_count\": 10,\r\n        \"options\": [\r\n            {\r\n                \"rank\": 1,\r\n                \"duration_minutes\": 243,\r\n                \"duration_seconds\": 14580,\r\n                \"segments_count\": 2,\r\n                \"transfers_count\": 1,\r\n                \"stops\": [\r\n                    {\r\n                        \"name\": \"Strasbourg\",\r\n                        \"lon\": 7.733882,\r\n                        \"id\": \"StopArea:OCE87212027\",\r\n                        \"lat\": 48.58511\r\n                    },\r\n                    {\r\n                        \"name\": \"Marne-la-Vallée Chessy\",\r\n                        \"lon\": 2.782626,\r\n                        \"id\": \"StopArea:OCE87111849\",\r\n                        \"lat\": 48.869898\r\n                    },\r\n                    {\r\n                        \"name\": \"Avignon TGV\",\r\n                        \"lon\": 4.786136,\r\n                        \"id\": \"StopArea:OCE87318964\",\r\n                        \"lat\": 43.92194\r\n                    }\r\n                ],\r\n                \"timeline\": [\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87212027\",\r\n                            \"name\": \"Strasbourg\",\r\n                            \"lat\": 48.58511,\r\n                            \"lon\": 7.733882\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87318964\",\r\n                            \"name\": \"Avignon TGV\",\r\n                            \"lat\": 43.92194,\r\n                            \"lon\": 4.786136\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    }\r\n                ],\r\n                \"neo4j_meta\": {\r\n                    \"raw_path_length\": 5,\r\n                    \"relationship_types\": [\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\"\r\n                    ]\r\n                }\r\n            },\r\n            {\r\n                \"rank\": 2,\r\n                \"duration_minutes\": 247,\r\n                \"duration_seconds\": 14820,\r\n                \"segments_count\": 3,\r\n                \"transfers_count\": 2,\r\n                \"stops\": [\r\n                    {\r\n                        \"name\": \"Strasbourg\",\r\n                        \"lon\": 7.733882,\r\n                        \"id\": \"StopArea:OCE87212027\",\r\n                        \"lat\": 48.58511\r\n                    },\r\n                    {\r\n                        \"name\": \"Marne-la-Vallée Chessy\",\r\n                        \"lon\": 2.782626,\r\n                        \"id\": \"StopArea:OCE87111849\",\r\n                        \"lat\": 48.869898\r\n                    },\r\n                    {\r\n                        \"name\": \"Avignon TGV\",\r\n                        \"lon\": 4.786136,\r\n                        \"id\": \"StopArea:OCE87318964\",\r\n                        \"lat\": 43.92194\r\n                    },\r\n                    {\r\n                        \"name\": \"Avignon Centre\",\r\n                        \"lon\": 4.805269,\r\n                        \"id\": \"StopArea:OCE87765008\",\r\n                        \"lat\": 43.941923\r\n                    }\r\n                ],\r\n                \"timeline\": [\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87212027\",\r\n                            \"name\": \"Strasbourg\",\r\n                            \"lat\": 48.58511,\r\n                            \"lon\": 7.733882\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87318964\",\r\n                            \"name\": \"Avignon TGV\",\r\n                            \"lat\": 43.92194,\r\n                            \"lon\": 4.786136\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87318964\",\r\n                            \"name\": \"Avignon TGV\",\r\n                            \"lat\": 43.92194,\r\n                            \"lon\": 4.786136\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87765008\",\r\n                            \"name\": \"Avignon Centre\",\r\n                            \"lat\": 43.941923,\r\n                            \"lon\": 4.805269\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    }\r\n                ],\r\n                \"neo4j_meta\": {\r\n                    \"raw_path_length\": 7,\r\n                    \"relationship_types\": [\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\"\r\n                    ]\r\n                }\r\n            },\r\n            {\r\n                \"rank\": 3,\r\n                \"duration_minutes\": 247,\r\n                \"duration_seconds\": 14820,\r\n                \"segments_count\": 3,\r\n                \"transfers_count\": 2,\r\n                \"stops\": [\r\n                    {\r\n                        \"name\": \"Strasbourg Roethig\",\r\n                        \"lon\": 7.69485,\r\n                        \"id\": \"StopArea:OCE87212191\",\r\n                        \"lat\": 48.563303\r\n                    },\r\n                    {\r\n                        \"name\": \"Strasbourg\",\r\n                        \"lon\": 7.733882,\r\n                        \"id\": \"StopArea:OCE87212027\",\r\n                        \"lat\": 48.58511\r\n                    },\r\n                    {\r\n                        \"name\": \"Marne-la-Vallée Chessy\",\r\n                        \"lon\": 2.782626,\r\n                        \"id\": \"StopArea:OCE87111849\",\r\n                        \"lat\": 48.869898\r\n                    },\r\n                    {\r\n                        \"name\": \"Avignon TGV\",\r\n                        \"lon\": 4.786136,\r\n                        \"id\": \"StopArea:OCE87318964\",\r\n                        \"lat\": 43.92194\r\n                    }\r\n                ],\r\n                \"timeline\": [\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87212191\",\r\n                            \"name\": \"Strasbourg Roethig\",\r\n                            \"lat\": 48.563303,\r\n                            \"lon\": 7.69485\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87212027\",\r\n                            \"name\": \"Strasbourg\",\r\n                            \"lat\": 48.58511,\r\n                            \"lon\": 7.733882\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87212027\",\r\n                            \"name\": \"Strasbourg\",\r\n                            \"lat\": 48.58511,\r\n                            \"lon\": 7.733882\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87318964\",\r\n                            \"name\": \"Avignon TGV\",\r\n                            \"lat\": 43.92194,\r\n                            \"lon\": 4.786136\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    }\r\n                ],\r\n                \"neo4j_meta\": {\r\n                    \"raw_path_length\": 7,\r\n                    \"relationship_types\": [\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\"\r\n                    ]\r\n                }\r\n            },\r\n            {\r\n                \"rank\": 4,\r\n                \"duration_minutes\": 251,\r\n                \"duration_seconds\": 15060,\r\n                \"segments_count\": 4,\r\n                \"transfers_count\": 3,\r\n                \"stops\": [\r\n                    {\r\n                        \"name\": \"Strasbourg Roethig\",\r\n                        \"lon\": 7.69485,\r\n                        \"id\": \"StopArea:OCE87212191\",\r\n                        \"lat\": 48.563303\r\n                    },\r\n                    {\r\n                        \"name\": \"Strasbourg\",\r\n                        \"lon\": 7.733882,\r\n                        \"id\": \"StopArea:OCE87212027\",\r\n                        \"lat\": 48.58511\r\n                    },\r\n                    {\r\n                        \"name\": \"Marne-la-Vallée Chessy\",\r\n                        \"lon\": 2.782626,\r\n                        \"id\": \"StopArea:OCE87111849\",\r\n                        \"lat\": 48.869898\r\n                    },\r\n                    {\r\n                        \"name\": \"Avignon TGV\",\r\n                        \"lon\": 4.786136,\r\n                        \"id\": \"StopArea:OCE87318964\",\r\n                        \"lat\": 43.92194\r\n                    },\r\n                    {\r\n                        \"name\": \"Avignon Centre\",\r\n                        \"lon\": 4.805269,\r\n                        \"id\": \"StopArea:OCE87765008\",\r\n                        \"lat\": 43.941923\r\n                    }\r\n                ],\r\n                \"timeline\": [\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87212191\",\r\n                            \"name\": \"Strasbourg Roethig\",\r\n                            \"lat\": 48.563303,\r\n                            \"lon\": 7.69485\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87212027\",\r\n                            \"name\": \"Strasbourg\",\r\n                            \"lat\": 48.58511,\r\n                            \"lon\": 7.733882\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87212027\",\r\n                            \"name\": \"Strasbourg\",\r\n                            \"lat\": 48.58511,\r\n                            \"lon\": 7.733882\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87318964\",\r\n                            \"name\": \"Avignon TGV\",\r\n                            \"lat\": 43.92194,\r\n                            \"lon\": 4.786136\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87318964\",\r\n                            \"name\": \"Avignon TGV\",\r\n                            \"lat\": 43.92194,\r\n                            \"lon\": 4.786136\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87765008\",\r\n                            \"name\": \"Avignon Centre\",\r\n                            \"lat\": 43.941923,\r\n                            \"lon\": 4.805269\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    }\r\n                ],\r\n                \"neo4j_meta\": {\r\n                    \"raw_path_length\": 9,\r\n                    \"relationship_types\": [\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\"\r\n                    ]\r\n                }\r\n            },\r\n            {\r\n                \"rank\": 5,\r\n                \"duration_minutes\": 254,\r\n                \"duration_seconds\": 15240,\r\n                \"segments_count\": 5,\r\n                \"transfers_count\": 4,\r\n                \"stops\": [\r\n                    {\r\n                        \"name\": \"Strasbourg\",\r\n                        \"lon\": 7.733882,\r\n                        \"id\": \"StopArea:OCE87212027\",\r\n                        \"lat\": 48.58511\r\n                    },\r\n                    {\r\n                        \"name\": \"Marne-la-Vallée Chessy\",\r\n                        \"lon\": 2.782626,\r\n                        \"id\": \"StopArea:OCE87111849\",\r\n                        \"lat\": 48.869898\r\n                    },\r\n                    {\r\n                        \"name\": \"Avignon TGV\",\r\n                        \"lon\": 4.786136,\r\n                        \"id\": \"StopArea:OCE87318964\",\r\n                        \"lat\": 43.92194\r\n                    },\r\n                    {\r\n                        \"name\": \"Avignon Centre\",\r\n                        \"lon\": 4.805269,\r\n                        \"id\": \"StopArea:OCE87765008\",\r\n                        \"lat\": 43.941923\r\n                    },\r\n                    {\r\n                        \"name\": \"Montfavet\",\r\n                        \"lon\": 4.87404,\r\n                        \"id\": \"StopArea:OCE87765412\",\r\n                        \"lat\": 43.932679\r\n                    },\r\n                    {\r\n                        \"name\": \"Morières-lès-Avignon\",\r\n                        \"lon\": 4.908206,\r\n                        \"id\": \"StopArea:OCE87765420\",\r\n                        \"lat\": 43.941502\r\n                    }\r\n                ],\r\n                \"timeline\": [\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87212027\",\r\n                            \"name\": \"Strasbourg\",\r\n                            \"lat\": 48.58511,\r\n                            \"lon\": 7.733882\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87318964\",\r\n                            \"name\": \"Avignon TGV\",\r\n                            \"lat\": 43.92194,\r\n                            \"lon\": 4.786136\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87318964\",\r\n                            \"name\": \"Avignon TGV\",\r\n                            \"lat\": 43.92194,\r\n                            \"lon\": 4.786136\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87765008\",\r\n                            \"name\": \"Avignon Centre\",\r\n                            \"lat\": 43.941923,\r\n                            \"lon\": 4.805269\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87765008\",\r\n                            \"name\": \"Avignon Centre\",\r\n                            \"lat\": 43.941923,\r\n                            \"lon\": 4.805269\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87765412\",\r\n                            \"name\": \"Montfavet\",\r\n                            \"lat\": 43.932679,\r\n                            \"lon\": 4.87404\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87765412\",\r\n                            \"name\": \"Montfavet\",\r\n                            \"lat\": 43.932679,\r\n                            \"lon\": 4.87404\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87765420\",\r\n                            \"name\": \"Morières-lès-Avignon\",\r\n                            \"lat\": 43.941502,\r\n                            \"lon\": 4.908206\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    }\r\n                ],\r\n                \"neo4j_meta\": {\r\n                    \"raw_path_length\": 11,\r\n                    \"relationship_types\": [\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\"\r\n                    ]\r\n                }\r\n            },\r\n            {\r\n                \"rank\": 6,\r\n                \"duration_minutes\": 256,\r\n                \"duration_seconds\": 15360,\r\n                \"segments_count\": 6,\r\n                \"transfers_count\": 5,\r\n                \"stops\": [\r\n                    {\r\n                        \"name\": \"Strasbourg\",\r\n                        \"lon\": 7.733882,\r\n                        \"id\": \"StopArea:OCE87212027\",\r\n                        \"lat\": 48.58511\r\n                    },\r\n                    {\r\n                        \"name\": \"Marne-la-Vallée Chessy\",\r\n                        \"lon\": 2.782626,\r\n                        \"id\": \"StopArea:OCE87111849\",\r\n                        \"lat\": 48.869898\r\n                    },\r\n                    {\r\n                        \"name\": \"Avignon TGV\",\r\n                        \"lon\": 4.786136,\r\n                        \"id\": \"StopArea:OCE87318964\",\r\n                        \"lat\": 43.92194\r\n                    },\r\n                    {\r\n                        \"name\": \"Avignon Centre\",\r\n                        \"lon\": 4.805269,\r\n                        \"id\": \"StopArea:OCE87765008\",\r\n                        \"lat\": 43.941923\r\n                    },\r\n                    {\r\n                        \"name\": \"Montfavet\",\r\n                        \"lon\": 4.87404,\r\n                        \"id\": \"StopArea:OCE87765412\",\r\n                        \"lat\": 43.932679\r\n                    },\r\n                    {\r\n                        \"name\": \"Morières-lès-Avignon\",\r\n                        \"lon\": 4.908206,\r\n                        \"id\": \"StopArea:OCE87765420\",\r\n                        \"lat\": 43.941502\r\n                    },\r\n                    {\r\n                        \"name\": \"Saint-Saturnin-lès-Avignon\",\r\n                        \"lon\": 4.935321,\r\n                        \"id\": \"StopArea:OCE87765438\",\r\n                        \"lat\": 43.95318\r\n                    }\r\n                ],\r\n                \"timeline\": [\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87212027\",\r\n                            \"name\": \"Strasbourg\",\r\n                            \"lat\": 48.58511,\r\n                            \"lon\": 7.733882\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87318964\",\r\n                            \"name\": \"Avignon TGV\",\r\n                            \"lat\": 43.92194,\r\n                            \"lon\": 4.786136\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87318964\",\r\n                            \"name\": \"Avignon TGV\",\r\n                            \"lat\": 43.92194,\r\n                            \"lon\": 4.786136\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87765008\",\r\n                            \"name\": \"Avignon Centre\",\r\n                            \"lat\": 43.941923,\r\n                            \"lon\": 4.805269\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87765008\",\r\n                            \"name\": \"Avignon Centre\",\r\n                            \"lat\": 43.941923,\r\n                            \"lon\": 4.805269\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87765412\",\r\n                            \"name\": \"Montfavet\",\r\n                            \"lat\": 43.932679,\r\n                            \"lon\": 4.87404\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87765412\",\r\n                            \"name\": \"Montfavet\",\r\n                            \"lat\": 43.932679,\r\n                            \"lon\": 4.87404\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87765420\",\r\n                            \"name\": \"Morières-lès-Avignon\",\r\n                            \"lat\": 43.941502,\r\n                            \"lon\": 4.908206\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87765420\",\r\n                            \"name\": \"Morières-lès-Avignon\",\r\n                            \"lat\": 43.941502,\r\n                            \"lon\": 4.908206\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87765438\",\r\n                            \"name\": \"Saint-Saturnin-lès-Avignon\",\r\n                            \"lat\": 43.95318,\r\n                            \"lon\": 4.935321\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    }\r\n                ],\r\n                \"neo4j_meta\": {\r\n                    \"raw_path_length\": 13,\r\n                    \"relationship_types\": [\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\"\r\n                    ]\r\n                }\r\n            },\r\n            {\r\n                \"rank\": 7,\r\n                \"duration_minutes\": 258,\r\n                \"duration_seconds\": 15480,\r\n                \"segments_count\": 6,\r\n                \"transfers_count\": 5,\r\n                \"stops\": [\r\n                    {\r\n                        \"name\": \"Strasbourg Roethig\",\r\n                        \"lon\": 7.69485,\r\n                        \"id\": \"StopArea:OCE87212191\",\r\n                        \"lat\": 48.563303\r\n                    },\r\n                    {\r\n                        \"name\": \"Strasbourg\",\r\n                        \"lon\": 7.733882,\r\n                        \"id\": \"StopArea:OCE87212027\",\r\n                        \"lat\": 48.58511\r\n                    },\r\n                    {\r\n                        \"name\": \"Marne-la-Vallée Chessy\",\r\n                        \"lon\": 2.782626,\r\n                        \"id\": \"StopArea:OCE87111849\",\r\n                        \"lat\": 48.869898\r\n                    },\r\n                    {\r\n                        \"name\": \"Avignon TGV\",\r\n                        \"lon\": 4.786136,\r\n                        \"id\": \"StopArea:OCE87318964\",\r\n                        \"lat\": 43.92194\r\n                    },\r\n                    {\r\n                        \"name\": \"Avignon Centre\",\r\n                        \"lon\": 4.805269,\r\n                        \"id\": \"StopArea:OCE87765008\",\r\n                        \"lat\": 43.941923\r\n                    },\r\n                    {\r\n                        \"name\": \"Montfavet\",\r\n                        \"lon\": 4.87404,\r\n                        \"id\": \"StopArea:OCE87765412\",\r\n                        \"lat\": 43.932679\r\n                    },\r\n                    {\r\n                        \"name\": \"Morières-lès-Avignon\",\r\n                        \"lon\": 4.908206,\r\n                        \"id\": \"StopArea:OCE87765420\",\r\n                        \"lat\": 43.941502\r\n                    }\r\n                ],\r\n                \"timeline\": [\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87212191\",\r\n                            \"name\": \"Strasbourg Roethig\",\r\n                            \"lat\": 48.563303,\r\n                            \"lon\": 7.69485\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87212027\",\r\n                            \"name\": \"Strasbourg\",\r\n                            \"lat\": 48.58511,\r\n                            \"lon\": 7.733882\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87212027\",\r\n                            \"name\": \"Strasbourg\",\r\n                            \"lat\": 48.58511,\r\n                            \"lon\": 7.733882\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87318964\",\r\n                            \"name\": \"Avignon TGV\",\r\n                            \"lat\": 43.92194,\r\n                            \"lon\": 4.786136\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87318964\",\r\n                            \"name\": \"Avignon TGV\",\r\n                            \"lat\": 43.92194,\r\n                            \"lon\": 4.786136\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87765008\",\r\n                            \"name\": \"Avignon Centre\",\r\n                            \"lat\": 43.941923,\r\n                            \"lon\": 4.805269\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87765008\",\r\n                            \"name\": \"Avignon Centre\",\r\n                            \"lat\": 43.941923,\r\n                            \"lon\": 4.805269\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87765412\",\r\n                            \"name\": \"Montfavet\",\r\n                            \"lat\": 43.932679,\r\n                            \"lon\": 4.87404\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87765412\",\r\n                            \"name\": \"Montfavet\",\r\n                            \"lat\": 43.932679,\r\n                            \"lon\": 4.87404\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87765420\",\r\n                            \"name\": \"Morières-lès-Avignon\",\r\n                            \"lat\": 43.941502,\r\n                            \"lon\": 4.908206\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    }\r\n                ],\r\n                \"neo4j_meta\": {\r\n                    \"raw_path_length\": 13,\r\n                    \"relationship_types\": [\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\"\r\n                    ]\r\n                }\r\n            },\r\n            {\r\n                \"rank\": 8,\r\n                \"duration_minutes\": 260,\r\n                \"duration_seconds\": 15600,\r\n                \"segments_count\": 7,\r\n                \"transfers_count\": 6,\r\n                \"stops\": [\r\n                    {\r\n                        \"name\": \"Strasbourg Roethig\",\r\n                        \"lon\": 7.69485,\r\n                        \"id\": \"StopArea:OCE87212191\",\r\n                        \"lat\": 48.563303\r\n                    },\r\n                    {\r\n                        \"name\": \"Strasbourg\",\r\n                        \"lon\": 7.733882,\r\n                        \"id\": \"StopArea:OCE87212027\",\r\n                        \"lat\": 48.58511\r\n                    },\r\n                    {\r\n                        \"name\": \"Marne-la-Vallée Chessy\",\r\n                        \"lon\": 2.782626,\r\n                        \"id\": \"StopArea:OCE87111849\",\r\n                        \"lat\": 48.869898\r\n                    },\r\n                    {\r\n                        \"name\": \"Avignon TGV\",\r\n                        \"lon\": 4.786136,\r\n                        \"id\": \"StopArea:OCE87318964\",\r\n                        \"lat\": 43.92194\r\n                    },\r\n                    {\r\n                        \"name\": \"Avignon Centre\",\r\n                        \"lon\": 4.805269,\r\n                        \"id\": \"StopArea:OCE87765008\",\r\n                        \"lat\": 43.941923\r\n                    },\r\n                    {\r\n                        \"name\": \"Montfavet\",\r\n                        \"lon\": 4.87404,\r\n                        \"id\": \"StopArea:OCE87765412\",\r\n                        \"lat\": 43.932679\r\n                    },\r\n                    {\r\n                        \"name\": \"Morières-lès-Avignon\",\r\n                        \"lon\": 4.908206,\r\n                        \"id\": \"StopArea:OCE87765420\",\r\n                        \"lat\": 43.941502\r\n                    },\r\n                    {\r\n                        \"name\": \"Saint-Saturnin-lès-Avignon\",\r\n                        \"lon\": 4.935321,\r\n                        \"id\": \"StopArea:OCE87765438\",\r\n                        \"lat\": 43.95318\r\n                    }\r\n                ],\r\n                \"timeline\": [\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87212191\",\r\n                            \"name\": \"Strasbourg Roethig\",\r\n                            \"lat\": 48.563303,\r\n                            \"lon\": 7.69485\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87212027\",\r\n                            \"name\": \"Strasbourg\",\r\n                            \"lat\": 48.58511,\r\n                            \"lon\": 7.733882\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87212027\",\r\n                            \"name\": \"Strasbourg\",\r\n                            \"lat\": 48.58511,\r\n                            \"lon\": 7.733882\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87318964\",\r\n                            \"name\": \"Avignon TGV\",\r\n                            \"lat\": 43.92194,\r\n                            \"lon\": 4.786136\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87318964\",\r\n                            \"name\": \"Avignon TGV\",\r\n                            \"lat\": 43.92194,\r\n                            \"lon\": 4.786136\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87765008\",\r\n                            \"name\": \"Avignon Centre\",\r\n                            \"lat\": 43.941923,\r\n                            \"lon\": 4.805269\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87765008\",\r\n                            \"name\": \"Avignon Centre\",\r\n                            \"lat\": 43.941923,\r\n                            \"lon\": 4.805269\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87765412\",\r\n                            \"name\": \"Montfavet\",\r\n                            \"lat\": 43.932679,\r\n                            \"lon\": 4.87404\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87765412\",\r\n                            \"name\": \"Montfavet\",\r\n                            \"lat\": 43.932679,\r\n                            \"lon\": 4.87404\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87765420\",\r\n                            \"name\": \"Morières-lès-Avignon\",\r\n                            \"lat\": 43.941502,\r\n                            \"lon\": 4.908206\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87765420\",\r\n                            \"name\": \"Morières-lès-Avignon\",\r\n                            \"lat\": 43.941502,\r\n                            \"lon\": 4.908206\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87765438\",\r\n                            \"name\": \"Saint-Saturnin-lès-Avignon\",\r\n                            \"lat\": 43.95318,\r\n                            \"lon\": 4.935321\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    }\r\n                ],\r\n                \"neo4j_meta\": {\r\n                    \"raw_path_length\": 15,\r\n                    \"relationship_types\": [\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\"\r\n                    ]\r\n                }\r\n            },\r\n            {\r\n                \"rank\": 9,\r\n                \"duration_minutes\": 405,\r\n                \"duration_seconds\": 24300,\r\n                \"segments_count\": 9,\r\n                \"transfers_count\": 8,\r\n                \"stops\": [\r\n                    {\r\n                        \"name\": \"Strasbourg Roethig\",\r\n                        \"lon\": 7.69485,\r\n                        \"id\": \"StopArea:OCE87212191\",\r\n                        \"lat\": 48.563303\r\n                    },\r\n                    {\r\n                        \"name\": \"Strasbourg\",\r\n                        \"lon\": 7.733882,\r\n                        \"id\": \"StopArea:OCE87212027\",\r\n                        \"lat\": 48.58511\r\n                    },\r\n                    {\r\n                        \"name\": \"Marne-la-Vallée Chessy\",\r\n                        \"lon\": 2.782626,\r\n                        \"id\": \"StopArea:OCE87111849\",\r\n                        \"lat\": 48.869898\r\n                    },\r\n                    {\r\n                        \"name\": \"Massy TGV\",\r\n                        \"lon\": 2.261254,\r\n                        \"id\": \"StopArea:OCE87393702\",\r\n                        \"lat\": 48.725758\r\n                    },\r\n                    {\r\n                        \"name\": \"Bordeaux Saint-Jean\",\r\n                        \"lon\": -0.556697,\r\n                        \"id\": \"StopArea:OCE87581009\",\r\n                        \"lat\": 44.825873\r\n                    },\r\n                    {\r\n                        \"name\": \"Toulouse Matabiau\",\r\n                        \"lon\": 1.453616,\r\n                        \"id\": \"StopArea:OCE87611004\",\r\n                        \"lat\": 43.611206\r\n                    },\r\n                    {\r\n                        \"name\": \"Labège Innopole\",\r\n                        \"lon\": 1.512964,\r\n                        \"id\": \"StopArea:OCE87612002\",\r\n                        \"lat\": 43.547467\r\n                    },\r\n                    {\r\n                        \"name\": \"Baziège\",\r\n                        \"lon\": 1.620698,\r\n                        \"id\": \"StopArea:OCE87611723\",\r\n                        \"lat\": 43.453608\r\n                    },\r\n                    {\r\n                        \"name\": \"Villefranche-de-Lauragais\",\r\n                        \"lon\": 1.714725,\r\n                        \"id\": \"StopArea:OCE87615013\",\r\n                        \"lat\": 43.398537\r\n                    },\r\n                    {\r\n                        \"name\": \"Avignonet\",\r\n                        \"lon\": 1.787269,\r\n                        \"id\": \"StopArea:OCE87616011\",\r\n                        \"lat\": 43.363877\r\n                    }\r\n                ],\r\n                \"timeline\": [\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87212191\",\r\n                            \"name\": \"Strasbourg Roethig\",\r\n                            \"lat\": 48.563303,\r\n                            \"lon\": 7.69485\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87212027\",\r\n                            \"name\": \"Strasbourg\",\r\n                            \"lat\": 48.58511,\r\n                            \"lon\": 7.733882\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87212027\",\r\n                            \"name\": \"Strasbourg\",\r\n                            \"lat\": 48.58511,\r\n                            \"lon\": 7.733882\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87393702\",\r\n                            \"name\": \"Massy TGV\",\r\n                            \"lat\": 48.725758,\r\n                            \"lon\": 2.261254\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87393702\",\r\n                            \"name\": \"Massy TGV\",\r\n                            \"lat\": 48.725758,\r\n                            \"lon\": 2.261254\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87581009\",\r\n                            \"name\": \"Bordeaux Saint-Jean\",\r\n                            \"lat\": 44.825873,\r\n                            \"lon\": -0.556697\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87581009\",\r\n                            \"name\": \"Bordeaux Saint-Jean\",\r\n                            \"lat\": 44.825873,\r\n                            \"lon\": -0.556697\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87611004\",\r\n                            \"name\": \"Toulouse Matabiau\",\r\n                            \"lat\": 43.611206,\r\n                            \"lon\": 1.453616\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87611004\",\r\n                            \"name\": \"Toulouse Matabiau\",\r\n                            \"lat\": 43.611206,\r\n                            \"lon\": 1.453616\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87612002\",\r\n                            \"name\": \"Labège Innopole\",\r\n                            \"lat\": 43.547467,\r\n                            \"lon\": 1.512964\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87612002\",\r\n                            \"name\": \"Labège Innopole\",\r\n                            \"lat\": 43.547467,\r\n                            \"lon\": 1.512964\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87611723\",\r\n                            \"name\": \"Baziège\",\r\n                            \"lat\": 43.453608,\r\n                            \"lon\": 1.620698\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87611723\",\r\n                            \"name\": \"Baziège\",\r\n                            \"lat\": 43.453608,\r\n                            \"lon\": 1.620698\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87615013\",\r\n                            \"name\": \"Villefranche-de-Lauragais\",\r\n                            \"lat\": 43.398537,\r\n                            \"lon\": 1.714725\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87615013\",\r\n                            \"name\": \"Villefranche-de-Lauragais\",\r\n                            \"lat\": 43.398537,\r\n                            \"lon\": 1.714725\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87616011\",\r\n                            \"name\": \"Avignonet\",\r\n                            \"lat\": 43.363877,\r\n                            \"lon\": 1.787269\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    }\r\n                ],\r\n                \"neo4j_meta\": {\r\n                    \"raw_path_length\": 19,\r\n                    \"relationship_types\": [\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\"\r\n                    ]\r\n                }\r\n            },\r\n            {\r\n                \"rank\": 10,\r\n                \"duration_minutes\": 442,\r\n                \"duration_seconds\": 26520,\r\n                \"segments_count\": 8,\r\n                \"transfers_count\": 7,\r\n                \"stops\": [\r\n                    {\r\n                        \"name\": \"Strasbourg\",\r\n                        \"lon\": 7.733882,\r\n                        \"id\": \"StopArea:OCE87212027\",\r\n                        \"lat\": 48.58511\r\n                    },\r\n                    {\r\n                        \"name\": \"Marne-la-Vallée Chessy\",\r\n                        \"lon\": 2.782626,\r\n                        \"id\": \"StopArea:OCE87111849\",\r\n                        \"lat\": 48.869898\r\n                    },\r\n                    {\r\n                        \"name\": \"Massy TGV\",\r\n                        \"lon\": 2.261254,\r\n                        \"id\": \"StopArea:OCE87393702\",\r\n                        \"lat\": 48.725758\r\n                    },\r\n                    {\r\n                        \"name\": \"Bordeaux Saint-Jean\",\r\n                        \"lon\": -0.556697,\r\n                        \"id\": \"StopArea:OCE87581009\",\r\n                        \"lat\": 44.825873\r\n                    },\r\n                    {\r\n                        \"name\": \"Toulouse Matabiau\",\r\n                        \"lon\": 1.453616,\r\n                        \"id\": \"StopArea:OCE87611004\",\r\n                        \"lat\": 43.611206\r\n                    },\r\n                    {\r\n                        \"name\": \"Carcassonne\",\r\n                        \"lon\": 2.351824,\r\n                        \"id\": \"StopArea:OCE87615286\",\r\n                        \"lat\": 43.218029\r\n                    },\r\n                    {\r\n                        \"name\": \"Bram\",\r\n                        \"lon\": 2.119325,\r\n                        \"id\": \"StopArea:OCE87615054\",\r\n                        \"lat\": 43.243815\r\n                    },\r\n                    {\r\n                        \"name\": \"Castelnaudary\",\r\n                        \"lon\": 1.95039,\r\n                        \"id\": \"StopArea:OCE87615039\",\r\n                        \"lat\": 43.312292\r\n                    },\r\n                    {\r\n                        \"name\": \"Avignonet\",\r\n                        \"lon\": 1.787269,\r\n                        \"id\": \"StopArea:OCE87616011\",\r\n                        \"lat\": 43.363877\r\n                    }\r\n                ],\r\n                \"timeline\": [\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87212027\",\r\n                            \"name\": \"Strasbourg\",\r\n                            \"lat\": 48.58511,\r\n                            \"lon\": 7.733882\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87111849\",\r\n                            \"name\": \"Marne-la-Vallée Chessy\",\r\n                            \"lat\": 48.869898,\r\n                            \"lon\": 2.782626\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87393702\",\r\n                            \"name\": \"Massy TGV\",\r\n                            \"lat\": 48.725758,\r\n                            \"lon\": 2.261254\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87393702\",\r\n                            \"name\": \"Massy TGV\",\r\n                            \"lat\": 48.725758,\r\n                            \"lon\": 2.261254\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87581009\",\r\n                            \"name\": \"Bordeaux Saint-Jean\",\r\n                            \"lat\": 44.825873,\r\n                            \"lon\": -0.556697\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87581009\",\r\n                            \"name\": \"Bordeaux Saint-Jean\",\r\n                            \"lat\": 44.825873,\r\n                            \"lon\": -0.556697\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87611004\",\r\n                            \"name\": \"Toulouse Matabiau\",\r\n                            \"lat\": 43.611206,\r\n                            \"lon\": 1.453616\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87611004\",\r\n                            \"name\": \"Toulouse Matabiau\",\r\n                            \"lat\": 43.611206,\r\n                            \"lon\": 1.453616\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87615286\",\r\n                            \"name\": \"Carcassonne\",\r\n                            \"lat\": 43.218029,\r\n                            \"lon\": 2.351824\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87615286\",\r\n                            \"name\": \"Carcassonne\",\r\n                            \"lat\": 43.218029,\r\n                            \"lon\": 2.351824\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87615054\",\r\n                            \"name\": \"Bram\",\r\n                            \"lat\": 43.243815,\r\n                            \"lon\": 2.119325\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87615054\",\r\n                            \"name\": \"Bram\",\r\n                            \"lat\": 43.243815,\r\n                            \"lon\": 2.119325\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87615039\",\r\n                            \"name\": \"Castelnaudary\",\r\n                            \"lat\": 43.312292,\r\n                            \"lon\": 1.95039\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    },\r\n                    {\r\n                        \"from\": {\r\n                            \"id\": \"StopArea:OCE87615039\",\r\n                            \"name\": \"Castelnaudary\",\r\n                            \"lat\": 43.312292,\r\n                            \"lon\": 1.95039\r\n                        },\r\n                        \"to\": {\r\n                            \"id\": \"StopArea:OCE87616011\",\r\n                            \"name\": \"Avignonet\",\r\n                            \"lat\": 43.363877,\r\n                            \"lon\": 1.787269\r\n                        },\r\n                        \"relationship_type\": \"RELIÉ_À\"\r\n                    }\r\n                ],\r\n                \"neo4j_meta\": {\r\n                    \"raw_path_length\": 17,\r\n                    \"relationship_types\": [\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\",\r\n                        \"RELIÉ_À\"\r\n                    ]\r\n                }\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/callbacks/pathfinder",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"callbacks",
+								"pathfinder"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Parse the JSON response",
+							"const jsonData = pm.response.json();",
+							"",
+							"// Extract the access_token and store it in a collection variable",
+							"if (jsonData.access_token) {",
+							"    pm.collectionVariables.set(\"token\", jsonData.access_token);",
+							"    console.log(\"Token stored in collection variable 'token'\");",
+							"}",
+							"",
+							"// Test to verify the token was received",
+							"pm.test(\"Access token is present in response\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"access_token\");",
+							"    pm.expect(jsonData.access_token).to.be.a(\"string\").and.not.be.empty;",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"a@b.c\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get authenticated user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Parse the JSON response",
+							"const jsonData = pm.response.json();",
+							"",
+							"// Extract the access_token and store it in a collection variable",
+							"if (jsonData.access_token) {",
+							"    pm.collectionVariables.set(\"token\", jsonData.access_token);",
+							"    console.log(\"Token stored in collection variable 'token'\");",
+							"}",
+							"",
+							"// Test to verify the token was received",
+							"pm.test(\"Access token is present in response\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"access_token\");",
+							"    pm.expect(jsonData.access_token).to.be.a(\"string\").and.not.be.empty;",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"a@b.c\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/authenticated-user",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"authenticated-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Store new voice request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "language_code",
+							"value": "fr_FR",
+							"type": "text"
+						},
+						{
+							"key": "audio_file",
+							"type": "file",
+							"src": "postman-cloud:///1f0e0303-a228-4c00-aa8d-6675fe86a006"
+						},
+						{
+							"key": "raw_transcript",
+							"value": "je veux aller de nantes à lille",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/voice-requests",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"voice-requests"
+					]
+				},
+				"description": "## Overview\n\nThis endpoint stores new voice requests for processing. It accepts voice data either as a raw text transcript or as an audio file upload, along with the associated language code.\n\nWith this endpoint Laravel is calling the NLP micro-service to analyze the retrieved sentence.\n\n## Request Details\n\n- **Endpoint:** `{{host}}/voice-requests`\n    \n- **Method:** `POST`\n    \n- **Content-Type:** `multipart/form-data`\n    \n\n## Form-Data Parameters\n\n### raw_transcript\n\n- **Type:** String\n    \n- **Required:** Yes (if audio_file is not provided)\n    \n- **Description:** The text transcript of the voice request\n    \n- **Example:** `J'aimerai aller de Paris à Strasbourg`\n    \n\n### language_code\n\n- **Type:** String\n    \n- **Required:** Yes\n    \n- **Description:** The language code for the transcript following the locale format\n    \n- **Example:** `fr_FR` (French - France)\n    \n\n### audio_file\n\n- **Type:** File\n    \n- **Required:** Optional\n    \n- **Description:** Audio file upload containing the voice request. Can be used as an alternative to or in addition to the raw_transcript parameter\n    \n\n## Required Headers\n\n- **Content-Type:** `multipart/form-data` - Required for sending form data with file uploads\n    \n- **Accept:** `application/json` - Specifies that the client expects a JSON response\n    \n\n## Authentication\n\nThis endpoint requires authentication using the `{{token}}` variable. Ensure the token is properly configured in your environment or collection variables.\n\n## Response Format\n\nThe endpoint returns a JSON response containing details about the stored voice request."
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve existing voice requests",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Check if the response was successful (status 200 or 201)",
+							"if (pm.response.code === 200 || pm.response.code === 201) {",
+							"    // Parse the JSON response",
+							"    const jsonResponse = pm.response.json();",
+							"    ",
+							"    // Extract the first requestId from the data array and store it in collection variable",
+							"    if (jsonResponse.data && jsonResponse.data.length > 0 && jsonResponse.data[0].id) {",
+							"        pm.collectionVariables.set('lastVoiceRequestId', jsonResponse.data[0].id);",
+							"        console.log('Stored lastVoiceRequestId:', jsonResponse.data[0].id);",
+							"    }",
+							"}",
+							"",
+							"// Test to verify the requestId was received",
+							"pm.test(\"Response contains at least one request with requestId\", function () {",
+							"    const jsonResponse = pm.response.json();",
+							"    pm.expect(jsonResponse.data).to.be.an('array').that.is.not.empty;",
+							"    pm.expect(jsonResponse.data[0]).to.have.property('id');",
+							"    pm.expect(jsonResponse.data[0].id).to.not.be.undefined;",
+							"    pm.expect(jsonResponse.data[0].id).to.not.be.null;",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/trip-requests",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"trip-requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a specific voice request",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "raw_transcript",
+							"value": "J'aimerai aller de Paris à Strasbourg",
+							"type": "text"
+						},
+						{
+							"key": "language_code",
+							"value": "fr_FR",
+							"type": "text"
+						},
+						{
+							"key": "audio_file",
+							"type": "file",
+							"src": "postman-cloud:///1f0e0303-a228-4c00-aa8d-6675fe86a006"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/trip-requests/{{lastVoiceRequestId}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"trip-requests",
+						"{{lastVoiceRequestId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://92.222.16.109:8000/api"
+		},
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "lastVoiceRequestId",
+			"value": ""
+		},
+		{
+			"key": "nlp_service_url",
+			"value": ""
+		}
+	]
+}
